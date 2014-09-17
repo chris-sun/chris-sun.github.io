@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adder Subtractor</title>
+    <style>
+      .center-div {
+        width: 800px;
+        display: block;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      function isValidInputs(x, y) {
+        return (isNaN(x) || isNaN(y)) ? false : true
+      }
+      $(document).ready(function(){
+        $("#plusButton").click(function() {
+          x = parseInt($('#xInput').val());
+          y = parseInt($('#yInput').val());
+          if (!isValidInputs(x, y)) {
+            alert("Please enter valid inputs");
+            return;
+          }
+          r = x + y;
+          $('#result').text(x + ' + ' + y + ' = ' + r);
+        });
+        $("#minusButton").click(function() {
+          x = parseInt($('#xInput').val());
+          y = parseInt($('#yInput').val());
+          if (!isValidInputs(x, y)) {
+            alert("Please enter valid inputs");
+            return;
+          }
+          r = x - y;
+          $('#result').text(x + ' - ' + y + ' = ' + r);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <hr/>
+    <div class='center-div'>
+      <h1>Adder / Subtractor</h1>
+      <div>
+        x = <input id="xInput" type="number"></input>
+      </div>
+      <div>
+        y = <input id="yInput" type="number"></input>
+      </div>
+      <div>
+        <button id='plusButton'>+</button>
+        <button id='minusButton'>-</button>
+      </div>
+      <div id='result'></div>
+    </div>
+    <hr/>
+  </body>
+</html>
