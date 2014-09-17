@@ -4,9 +4,11 @@
     <title>Adder Subtractor</title>
     <style>
       .center-div {
-        width: 800px;
-        display: block;
         margin-top: 50px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 10px;
+        text-align: center;
         margin-left: auto;
         margin-right: auto;
       }
@@ -35,20 +37,19 @@
             return;
           }
           r = x - y;
-          $('#result').text(x + ' - ' + y + ' = ' + r);
+          $('#result').text(x + ' - ' + y + ' is ' + r);
         });
       });
     </script>
   </head>
   <body>
-    <hr/>
     <div class='center-div'>
       <h1>Adder / Subtractor</h1>
       <div>
-        x = <input id="xInput" type="number"></input>
+        x = <input id="xInput" type="number" placeholder='Enter an Integer'></input>
       </div>
       <div>
-        y = <input id="yInput" type="number"></input>
+        y = <input id="yInput" type="number" placeholder='Enter an Integer'></input>
       </div>
       <div>
         <button id='plusButton'>+</button>
@@ -56,6 +57,5 @@
       </div>
       <div id='result'></div>
     </div>
-    <hr/>
   </body>
 </html>
