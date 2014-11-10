@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ngMadLibs Subtractor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <style>
+      .border_line {
+        border: 1px solid black;
+      }
+      .header_box {
+        height: 185px;
+      }
+      .output_text {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    </style>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script src="./mad_libs_module.js"></script>
+  </head>
+  <body ng-app="madlibs">
+    <div ng-controller="mainController" class='container border_line'>
+
+      <div class='row border_line header_box'>
+        <div class='col-md-2'>
+          <img src='./mad-lib-happy-face.png'/ height='140' width='150'>
+        </div>
+        <div class='col-md-10 border_line header_box'>
+          <img src='./ng-mad-libs-logo.png'/>
+          <h1>{{ greeting }}</h1>
+        </div>
+      </div>
+
+      <div class='row' ng-if="show_inputs">
+        <div class='col-md-12'>
+          <h2>Provide the following words</h2>
+          <form class="form-horizontal" name="myForm" ng-submit="submitFunc(myForm.$valid)">
+            <div class="form-group">
+              <div class="col-sm-3">
+                <input type='text' ng-model='data.female_name' placeholder='Female Name' name="female_name" ng-maxlength="max_length" required />
+              </div>
+
+              <div class="col-sm-3">
+                <input type='text' ng-model='data.dirty_task' placeholder='Dirty Task' name="dirty_task" ng-maxlength="max_length" required />
+              </div>
+
+              <div class="col-sm-3">
+                <input type='text' ng-model='data.obnoxiuous_celebrity' placeholder='Obnoxious Celebrity' name="obnoxiuous_celebrity" ng-maxlength="max_length" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-3">
+                <input type='text' ng-model='data.job_title' placeholder='Job Title' name="job_title" ng-maxlength="max_length" required />
+              </div>
+              <div class="col-sm-3">
+                <input type='text' ng-model='data.celebrity' placeholder='Celebrity' name="celebrity" ng-maxlength="max_length" required />
+              </div>
+              <div class="col-sm-3">
+                <input type='number' ng-model='data.huge_number' placeholder='Huge Number' name="huge_number" ng-maxlength="max_length" required min="1" integer />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-3">
+                <input type='text' ng-model='data.tedious_task' placeholder='Tedious Task' name="tedious_task" ng-maxlength="max_length" required />
+              </div>
+              <div class="col-sm-3">
+                <input type='text' ng-model='data.useless_skill' placeholder='Useless Skill' name="useless_skill" ng-maxlength="max_length" required />
+              </div>
+              <div class="col-sm-3">
+                <input type='text' ng-model='data.adjective' placeholder='Adjective' name="adjective" ng-maxlength="max_length" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-6 col-sm-3">
+                <button type="submit" class="btn btn-default">Generate My Mad Lib</button>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div> <!-- end of inputs div -->
+
+      <div class='output_text' ng-if="!show_inputs">
+        <div class="row">
+          <div class='col-md-12'>
+            <p>{{data.female_name}} was a {{data.job_title}} who loved technology. Although she loved parts of her job, she absolutely hated  {{data.tedious_task}} and {{data.dirty_task}}. So, {{data.female_name}} met with her life mentor {{data.celebrity}} who told her to learn how to {{data.useless_skill}} with Thinkful. Thinkful didn't offer a course on {{data.useless_skill}} so she studied programming instead.</p>
+
+            <p>What a great decision! With her new skills, {{data.female_name}} built a(n) {{data.adjective}} robot named {{data.obnoxiuous_celebrity}} that not only loved {{data.dirty_task}} but did it {{data.huge_number}} times faster.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class='col-md-offset-6 col-md-3'>
+            <button ng-click="start_over()" class="btn btn-default">Start Over</button>
+          </div>
+        </div>
+
+      </div> <!-- end of ng-if -->
+
+    </div> <!-- end of controller -->
+  </body>
+</html>
