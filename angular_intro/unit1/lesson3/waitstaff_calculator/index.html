@@ -36,7 +36,7 @@
             <div class="form-group" ng-repeat="(key, data) in mealInfo">
               <label for="{{key}}" class="col-md-4 control-label">{{data.title}}</label>
               <div class="col-md-2">
-                <input type="number" id="{{key}}" ng-model="data.value" class="form-control" required>
+                <input type="number" id="{{key}}" ng-model="data.value" class="form-control" min="0" required>
               </div>
             </div>
 
