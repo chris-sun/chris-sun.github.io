@@ -30,18 +30,18 @@
       </div>
 
       <div class='row'>
-        <div class='col-md-8'>
-          <h2>Enter the Meal Details</h2>
+        <div class='col-md-6'>
+          <h3>Enter the Meal Details</h3>
           <form class="form-horizontal" name="myForm" ng-submit="submitFunc(myForm.$valid)">
             <div class="form-group" ng-repeat="(key, data) in mealInfo">
-              <label for="{{key}}" class="col-md-3 control-label">{{data.title}}</label>
+              <label for="{{key}}" class="col-md-4 control-label">{{data.title}}</label>
               <div class="col-md-2">
                 <input type="number" id="{{key}}" ng-model="data.value" class="form-control" required>
               </div>
             </div>
 
             <div class="form-group">
-              <div class="col-md-offset-2 col-md-2">
+              <div class="col-md-offset-4 col-md-2">
                 <button type="submit" class="btn btn-default">Submit</button>
               </div>
               <div class="col-md-2">
@@ -50,30 +50,31 @@
             </div>
           </form>
         </div>
+
+        <div class='col-md-4'>
+          <div class='row'>
+            <h3>Customer Charges</h3>
+            <table class="table">
+              <tr ng-repeat="(key, value) in charges">
+                <td class="col-md-2" style="text-transform: capitalize;">{{key}}</td>
+                <td class="col-md-2">{{value | currency}}</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class='row'>
+            <h3>My Earnings Info</h3>
+            <table class="table">
+              <tr ng-repeat="(key, data) in summary">
+                <td class="col-md-2">{{data.title}}</td>
+                <td ng-if="key == 'mealCount'"class="col-md-2">{{data.value}}</td>
+                <td ng-if="key != 'mealCount'"class="col-md-2">{{data.value | currency}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
       </div> <!-- end of inputs div -->
-
-      <div class='row'>
-        <div class='col-md-5'>
-          <table class="table">
-            <tr ng-repeat="(key, value) in charges">
-              <td class="col-md-2" style="text-transform: capitalize;">{{key}}</td>
-              <td class="col-md-2">{{value | currency}}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div class='row'>
-        <div class='col-md-5'>
-          <table class="table">
-            <tr ng-repeat="(key, data) in summary">
-              <td class="col-md-2">{{data.title}}</td>
-              <td ng-if="key == 'mealCount'"class="col-md-2">{{data.value}}</td>
-              <td ng-if="key != 'mealCount'"class="col-md-2">{{data.value | currency}}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
 
       <div class="row">
         <div class='col-md-offset-6 col-md-3'>
