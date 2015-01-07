@@ -45,7 +45,7 @@ myApp.controller('mainController', ['$scope', function($scope) {
       $scope.charges.subtotal = parseFloat(subtotal.toFixed(2));
 
       tipRate = parseInt($scope.mealInfo.tipRate.value) / 100;
-      tipAmount = $scope.charges.subtotal * tipRate;
+      tipAmount = parseFloat($scope.mealInfo.price.value) * tipRate;
       $scope.charges.tip = parseFloat(tipAmount.toFixed(2));
 
       $scope.charges.total = $scope.charges.subtotal + $scope.charges.tip;
